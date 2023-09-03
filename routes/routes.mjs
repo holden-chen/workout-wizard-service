@@ -1,12 +1,6 @@
 import express from 'express';
-import { exercise as Exercise } from './model.mjs';
-
-const app = express();
-const PORT = 3000;
-
-// include express.json middlware
-app.use(express.json());
-// -----------------------------------
+const router = express.Router();
+import { exercise as Exercise } from '../model.mjs'
 
 // MIDDLEWARE FUNCTION
 async function getExercise(req, res, next) {
@@ -24,11 +18,9 @@ async function getExercise(req, res, next) {
     next();
 }
 
-
 // -----------------------------------
-// CRUD OPERATIONS:
 // CREATE
-app.post('/exercises', async (req, res) => {
+router.post('/exercises', async (req, res) => {
     const exercise = new Exercise({
         name: req.body.name,
         reps: req.body.reps,
@@ -48,7 +40,7 @@ app.post('/exercises', async (req, res) => {
 
 // -----------------------------------
 // READ
-app.get('/exercises', async (req, res) => {
+router.get('/exercises', async (req, res) => {
     try {
         const exercises = await Exercise.find();
         res.json(exercises);
@@ -60,7 +52,7 @@ app.get('/exercises', async (req, res) => {
 
 // -----------------------------------
 // UPDATE
-app.put('/exercises/:_id', getExercise, async (req, res) => {
+router.put('/exercises/:_id', getExercise, async (req, res) => {
     if (req.body.name !== res.exercise.name) {
         res.exercise.name = req.body.name
     } 
@@ -87,7 +79,7 @@ app.put('/exercises/:_id', getExercise, async (req, res) => {
 
 // -----------------------------------
 // DELETE
-app.delete('/exercises/:_id', getExercise, async (req, res) => {
+router.delete('/exercises/:_id', getExercise, async (req, res) => {
     try {
         await res.exercise.remove();
         res.status(204).json({ message: 'Deleted exercise' });
@@ -96,8 +88,4 @@ app.delete('/exercises/:_id', getExercise, async (req, res) => {
     }
 });
 
-
-// -----------------------------------
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}...`);
-});
+export default router;
