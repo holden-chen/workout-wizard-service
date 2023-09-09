@@ -1,7 +1,7 @@
 # workout-wizard-service
 Microservice component for Workout Wizard Fullstack App, built with Node.js, Express, and MongoDB, and deployed via Railway
 
-This project is a simple API built with Express.js and connects to a MongoDB Atlas database.
+This project is a simple REST API built with Express.js and connects to a MongoDB Atlas database.
 
 ## Getting Started
 
