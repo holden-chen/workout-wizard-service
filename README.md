@@ -1,7 +1,7 @@
 # workout-wizard-service
-Microservice component for Workout Wizard Fullstack App, built with Node.js, Express, and MongoDB, and deployed via Railway
+Microservice component for Workout Wizard Fullstack App, built with Node.js, Express, and MongoDB, and deployed via Railway.
 
-This project is a simple REST API built with Express.js and connects to a MongoDB Atlas database.
+This project is a simple REST API built with Express.js and connects to a MongoDB Atlas database. The Workout Wizard Frontend calls this API to execute CRUD operations.
 
 ## Getting Started
 
@@ -17,18 +17,18 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repository to your local machine:
    
     ```
-    git clone https://github.com/yourusername/express-api.git
+    git clone https://github.com/holden-chen/workout-wizard-service.git
     ```
 
 2. Navigate to the project directory:
 
-    ```bash
-    cd express-api
+    ```
+    cd workout-wizard-service
     ```
 
 3. Install the project dependencies:
 
-    ```bash
+    ```
     npm install
     ```
 
@@ -38,6 +38,8 @@ These instructions will get you a copy of the project up and running on your loc
     PORT=3000
     MONGO_URL=<MONGO_URL>
     ```
+
+5. To deploy via Railway, make sure your host is listening on "0.0.0.0" and PORT evironment variable is defined. See (https://docs.railway.app/troubleshoot/fixing-common-errors)
 
 ### Running the API
 
