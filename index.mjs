@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/api', routes);
 
 // Connect to MongoDB
-const atlasURI = process.env.ATLAS_URI;
+const atlasURI = process.env.MONGO_URL;
 mongoose.connect(atlasURI);
 const db = mongoose.connection;
 
