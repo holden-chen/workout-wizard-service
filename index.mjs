@@ -4,7 +4,7 @@ import routes from './routes/routes.mjs';
 import 'dotenv/config';
 
 const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 
 // include express.json middlware
 app.use(express.json());
@@ -26,6 +26,6 @@ db.once('connected', () => {
 // -----------------------------------
 
 // -----------------------------------
-app.listen(PORT, () => {
+app.listen(port, "0.0.0.0", () => {
     console.log(`Server listening on port ${PORT}...`);
 });
